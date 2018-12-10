@@ -48,5 +48,7 @@ public class MembershipController {
     public void deleteMembership(@PathVariable int id) {
         membershipService.deleteMembership(id);
     }
+
+    //matitospokogosc
 }
 
