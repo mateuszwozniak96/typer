@@ -1,5 +1,6 @@
 package com.wat.typer.typer.services;
 
+import com.wat.typer.typer.entities.Queue;
 import com.wat.typer.typer.entities.User;
 import com.wat.typer.typer.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,4 +20,13 @@ public class UserService {
     public void addUser(User user) {
         userRepository.save(user);
     }
+
+    public User getUser(int id) {
+        return userRepository.findById(id).get();
+    }
+
+    public void deleteUser(int id) {
+        userRepository.deleteById(id);
+    }
+
 }
