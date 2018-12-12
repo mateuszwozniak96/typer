@@ -17,9 +17,30 @@ public class QueueController {
     private List<Queue> getQueues(){
         return queueService.getQueues();
     }
+
     @PostMapping("/queues")
     private void addQueue(@RequestBody Queue queue){
         queueService.addQueue(queue);
+    }
+
+    @GetMapping("/queues/{id}")
+    public Queue getQueue(@PathVariable int id) {
+        return queueService.getQueue(id);
+    }
+
+    @GetMapping("/leagues/{id}/queues/")
+    public List<Queue> getQueuesByLeagues(@PathVariable int id) {
+        return queueService.getQueuesByLeagues(id);
+    }
+
+    @PutMapping(value = "/queues/{id}")
+    public void updateQueue(@RequestBody Queue queue, @PathVariable int id) {
+        queueService.addQueue(queue);
+    }
+
+    @DeleteMapping(value = "/queues/{id}")
+    public void deleteUser(@PathVariable int id) {
+        queueService.deleteQueue(id);
     }
 
 }

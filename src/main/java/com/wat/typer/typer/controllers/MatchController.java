@@ -22,4 +22,24 @@ public class MatchController {
     private void addMatch(@RequestBody Match match){
         matchService.addMatch(match);
     }
+
+    @GetMapping("/matches/{id}")
+    public Match getMatch(@PathVariable int id) {
+        return matchService.getMatch(id);
+    }
+
+    @GetMapping("/queues/{id}/matches/")
+    public List<Match> getMatchesByQueue(@PathVariable int id) {
+        return matchService.getMatchesByQueues(id);
+    }
+
+    @PutMapping(value = "/mathces/{id}")
+    public void updateMatch(@RequestBody Match match, @PathVariable int id) {
+        matchService.addMatch(match);
+    }
+
+    @DeleteMapping(value = "/matches/{id}")
+    public void deleteLeague(@PathVariable int id) {
+        matchService.deleteMatch(id);
+    }
 }

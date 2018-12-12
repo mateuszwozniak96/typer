@@ -22,4 +22,19 @@ public class UserController {
     public void addUser(@RequestBody User user){
         userService.addUser(user);
     }
+
+    @GetMapping("/users/{id}")
+    public User geUser(@PathVariable int id) {
+        return userService.getUser(id);
+    }
+
+    @PutMapping(value = "/users/{id}")
+    public void updateUser(@RequestBody User user, @PathVariable int id) {
+        userService.addUser(user);
+    }
+
+    @DeleteMapping(value = "/users/{id}")
+    public void deleteUser(@PathVariable int id) {
+        userService.deleteUser(id);
+    }
 }

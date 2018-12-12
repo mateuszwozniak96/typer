@@ -19,4 +19,12 @@ public class LeagueService {
     public void addLeague(League league) {
         leagueRepository.save(league);
     }
+
+    public League getLeague(int id) {
+        return leagueRepository.findById(id).get();
+    }
+
+    public void deleteLeague(int id) {
+        leagueRepository.deleteById(id);
+    }
 }
