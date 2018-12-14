@@ -28,7 +28,7 @@ public class MatchController {
         return matchService.getMatch(id);
     }
 
-    @GetMapping("/queues/{id}/matches/")
+    @GetMapping("/queues/{id}/matches")
     public List<Match> getMatchesByQueue(@PathVariable int id) {
         return matchService.getMatchesByQueues(id);
     }

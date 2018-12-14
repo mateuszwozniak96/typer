@@ -37,5 +37,9 @@ public class LeagueController {
     public void deleteLeague(@PathVariable int id) {
         leagueService.deleteLeague(id);
     }
+    @GetMapping(value = "/leagues", params = "name")
+    public League getLeagueByName(@RequestParam String name){
+        return this.leagueService.getLeagueByName(name);
+    }
 
 }

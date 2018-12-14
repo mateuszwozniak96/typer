@@ -18,7 +18,7 @@ public class MembershipController {
         return membershipService.getMemberships();
     }
 
-    @PostMapping("memberships")
+    @PostMapping("/memberships")
     private  void addMembership(@RequestBody Membership membership){
         membershipService.addMembership(membership);
     }
@@ -28,12 +28,12 @@ public class MembershipController {
         return membershipService.getMembership(id);
     }
 
-    @GetMapping("/leagues/{id}/memberships/")
+    @GetMapping("/leagues/{id}/memberships")
     public List<Membership> getMembershipsByLeagues(@PathVariable int id) {
         return membershipService.getMembershipsByLeagues(id);
     }
 
-    @GetMapping("/users/{id}/memberships/")
+    @GetMapping("/users/{id}/memberships")
     public List<Membership> getMembershipsByUsers(@PathVariable int id) {
         return membershipService.getMembershipsByUsers(id);
     }

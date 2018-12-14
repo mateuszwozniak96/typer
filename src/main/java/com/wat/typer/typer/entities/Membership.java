@@ -13,10 +13,13 @@ public class Membership {
     @Column(name="points")
     private int points;
 
-    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @Column(name="is_admin")
+    private boolean isAdmin;
+
+    @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(name="user_id")
     private User user;
-    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(name="league_id")
     private League league;
 
@@ -27,8 +30,18 @@ public class Membership {
 
     public Membership(){}
 
-    public Membership(int points, User user, League league) {
+    public boolean getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
+    public Membership(int points, boolean isAdmin, User user, League league) {
         this.points = points;
+        this.isAdmin=isAdmin;
+
         this.user = user;
         this.league = league;
     }

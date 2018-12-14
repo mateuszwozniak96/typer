@@ -27,4 +27,9 @@ public class LeagueService {
     public void deleteLeague(int id) {
         leagueRepository.deleteById(id);
     }
+
+    public League getLeagueByName(String name) {
+        return leagueRepository.findByLeagueName(name);
+    }
+
 }
